@@ -135,13 +135,13 @@ Current release: `1.0.0-beta7`
 - [x] Write docs for Themes support
 - [ ] Write docs for migration from v0.19.1 to 1.0.0 -
       **[\$200](https://opencollective.com/react-native-elements#budget)**
-- [ ] Create a compelling demo/example app for RNE + RNW (Checkout
+- [x] Create a compelling demo/example app for RNE + RNW (Checkout
       [rn-web](https://github.com/react-native-training/react-native-elements/tree/rn-web)
       branch or
       [this PR comment](https://github.com/react-native-training/react-native-elements/pull/867#issuecomment-362312699)
       for context) -
       **[\$50](https://opencollective.com/react-native-elements#budget)**
-- [ ] Write docs for React Native Web support (Checkout
+- [x] Write docs for React Native Web support (Checkout
       [rn-web](https://github.com/react-native-training/react-native-elements/tree/rn-web)
       branch or
       [this PR comment](https://github.com/react-native-training/react-native-elements/pull/867#issuecomment-362312699)
@@ -167,7 +167,7 @@ re-written components), the `v1.0.0` beta releases are meant to give our users a
 heads up and give them plenty of time to migrate their apps to `v1`.
 
 The official `v1.0.0` will be released around December 2018 🎉
-
+ 
 ### Test v1.0 components
 
 You can test new features of the `v1.0.0` beta releases on
@@ -176,6 +176,13 @@ You can test new features of the `v1.0.0` beta releases on
 `"react-native-elements": "^1.0.0-beta"`
 
 This will install the latest beta release of React Native Elements.
+
+## React Native Web support
+
+As its tagline, `Cross Platform UI Toolkit`, you can use RNE not only for React Native project but also ReactJs. RNE components are rendered perfectly on browser. You can achieve this, using the same codebase to target iOS, Android and Web by collaborating RNE and [React Native for Web](https://github.com/necolas/react-native-web).
+
+Full documentation RNE x RNW, click here.
+
 
 ## Documentation
 
