@@ -4,9 +4,10 @@ import {
   TouchableOpacity,
   Text as NativeText,
   View,
-  Image,
+  Image as RNImage,
   StyleSheet,
   Dimensions,
+  ActivityIndicator,
 } from 'react-native';
 
 import { ViewPropTypes, BackgroundImage, withTheme } from '../config';
@@ -14,6 +15,7 @@ import { renderNode } from '../helpers';
 
 import Text from '../text/Text';
 import Icon from '../icons/Icon';
+import Image from '../image/Image';
 
 const renderText = (content, defaultProps, style) =>
   renderNode(Text, content, {
@@ -91,13 +93,15 @@ const FeaturedTile = props => {
         containerStyle && containerStyle,
       ])}
     >
-      <ImageComponent
+      <Image
         source={imageSrc}
         style={StyleSheet.flatten([
           styles.imageContainer,
           imageContainerStyle && imageContainerStyle,
         ])}
         resizeMode="cover"
+        ImageComponent={ImageComponent}
+        PlaceholderContent={<ActivityIndicator />}
       >
         <View
           style={StyleSheet.flatten([
@@ -122,7 +126,7 @@ const FeaturedTile = props => {
           </Text>
           {renderText(caption, { style: captionStyle }, styles.text)}
         </View>
-      </ImageComponent>
+      </Image>
     </TouchableOpacity>
   );
 };
@@ -131,7 +135,7 @@ FeaturedTile.propTypes = {
   title: PropTypes.string,
   icon: PropTypes.object,
   caption: PropTypes.node,
-  imageSrc: Image.propTypes.source,
+  imageSrc: RNImage.propTypes.source,
   onPress: PropTypes.func,
   containerStyle: ViewPropTypes.style,
   iconContainerStyle: ViewPropTypes.style,

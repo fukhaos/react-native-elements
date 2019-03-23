@@ -4,8 +4,9 @@ import {
   View,
   StyleSheet,
   Dimensions,
-  Image,
+  Image as RNImage,
   TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
 
 import {
@@ -17,6 +18,7 @@ import {
 
 import Text from '../text/Text';
 import Icon from '../icons/Icon';
+import Image from '../image/Image';
 import FeaturedTile from './FeaturedTile';
 
 const Tile = props => {
@@ -76,13 +78,16 @@ const Tile = props => {
         containerStyle && containerStyle,
       ])}
     >
-      <ImageComponent
+      <Image
         source={imageSrc}
         style={StyleSheet.flatten([
           styles.imageContainer,
           imageContainerStyle && imageContainerStyle,
         ])}
         resizeMode="cover"
+        containerStyle={styles.imageWrapper}
+        ImageComponent={ImageComponent}
+        PlaceholderContent={<ActivityIndicator />}
       >
         <View
           style={StyleSheet.flatten([
@@ -92,7 +97,7 @@ const Tile = props => {
         >
           {icon && <Icon {...icon} />}
         </View>
-      </ImageComponent>
+      </Image>
       <View
         style={StyleSheet.flatten([
           styles.contentContainer,
@@ -117,7 +122,7 @@ Tile.propTypes = {
   title: PropTypes.string,
   icon: PropTypes.object,
   caption: PropTypes.node,
-  imageSrc: Image.propTypes.source,
+  imageSrc: RNImage.propTypes.source,
   onPress: PropTypes.func,
   activeOpacity: PropTypes.number,
   containerStyle: ViewPropTypes.style,
@@ -146,6 +151,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#ffffff',
     flex: 2,
+  },
+  imageWrapper: {
+    flex: 1,
   },
   text: {
     backgroundColor: 'rgba(0,0,0,0)',
